@@ -28,13 +28,16 @@ cutejindodog-front-end/
 │ ├── logo.svg 
 │ ├── reportWebVitals.js 
 │ ├── setupTests.js 
-│ └── pages/ # 라우팅되는 페이지 모음
-│ ├── games/
-│ │ ├── game.js # "게임 선택" 페이지 컴포넌트
-│ │ └── game.css # "게임 선택" 페이지 전용 스타일
-│ └── login/
-│ ├── login.js # "로그인" 페이지 컴포넌트
-│ └── login.css # "로그인" 페이지 전용 스타일
+│ └── pages/                     # 라우팅되는 페이지 모음
+│       ├── games/
+│       │   ├── game.js          # "게임 선택" 페이지 컴포넌트
+│       │   └── game.css         # "게임 선택" 페이지 전용 스타일
+│       └── login/
+│           ├── login.js         # "로그인" 페이지 컴포넌트
+│           ├── login.css        # "로그인" 페이지 전용 스타일
+│           └── sign-up/         # 회원가입 페이지
+│               ├── sign.js      # "회원가입" 페이지 컴포넌트
+│               └── sign.css     # "회원가입" 페이지 전용 스타일
 ├── package.json # 프로젝트 메타정보 & 의존성 목록
 ├── package-lock.json # 의존성 버전 고정 파일
 └── README.md # 프로젝트 설명 문서
