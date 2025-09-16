@@ -1,71 +1,40 @@
-# Getting Started with Create React App
+# 🎮 Cute Jindo Dog Front-End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React 기반의 미니게임 플랫폼 (Front-End 파트) 프로젝트입니다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📂 디렉토리 구조
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# cutejindodog-front-end
+cutejindodog-front-end/
+├── node_modules/ # 설치된 라이브러리 (git에 올리지 않음)
+├── public/ # 정적 리소스 (HTML, 이미지, manifest 등)
+│ ├── cutejindodog.jpg # 배경 이미지
+│ ├── favicon.ico 
+│ ├── index.html 
+│ ├── logo192.png 
+│ ├── logo512.png 
+│ ├── manifest.json 
+│ └── robots.txt 
+├── src/ # React 애플리케이션 소스 코드
+│ ├── App.js # 메인 컴포넌트 (라우팅 포함)
+│ ├── App.css # App.js 스타일 정의
+│ ├── App.test.js # App 컴포넌트 테스트 코드
+│ ├── back_App.js # (임시/백업용) App.js 대체 버전
+│ ├── game-button.js # "게임 선택" 버튼 컴포넌트
+│ ├── login-button.js # "로그인" 버튼 컴포넌트
+│ ├── index.js 
+│ ├── index.css 
+│ ├── logo.svg 
+│ ├── reportWebVitals.js 
+│ ├── setupTests.js 
+│ └── pages/ # 라우팅되는 페이지 모음
+│ ├── games/
+│ │ ├── game.js # "게임 선택" 페이지 컴포넌트
+│ │ └── game.css # "게임 선택" 페이지 전용 스타일
+│ └── login/
+│ ├── login.js # "로그인" 페이지 컴포넌트
+│ └── login.css # "로그인" 페이지 전용 스타일
+├── package.json # 프로젝트 메타정보 & 의존성 목록
+├── package-lock.json # 의존성 버전 고정 파일
+└── README.md # 프로젝트 설명 문서
