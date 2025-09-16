@@ -40,7 +40,6 @@ cutejindodog-front-end/
 │           └── sign.js
 ├── reportWebVitals.js
 └── setupTests.js
-
 ├── package.json # 프로젝트 메타정보 & 의존성 목록
 ├── package-lock.json # 의존성 버전 고정 파일
 └── README.md # 프로젝트 설명 문서
