@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./pages/login/login";
 import LoginButton from "./login-button";
+import SignUp from "./pages/login/sign-up/sign";
 import Game from "./pages/games/game";  
 import GameButton from "./game-button"; 
 
@@ -41,6 +42,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/games" element={<Game />} />
       </Routes>
     </Router>
