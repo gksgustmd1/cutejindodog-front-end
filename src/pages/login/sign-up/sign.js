@@ -7,13 +7,32 @@ function SignUp() {
     nickname: "",
     password: "",
     passwordConfirm: "",
-    email: ""
+    email: "",
+    code: ""
   });
 
   const handleChange = (e) => {
     setForm({
       ...form,
       [e.target.name]: e.target.value
+    });
+  };
+
+  // 인증코드 요청 버튼 이벤트
+  const handleRequestCode = () => {
+    if (!form.email) {
+      alert("이메일을 먼저 입력하세요.");
+      return;
+    }
+    axios.post("http://100.82.187.105:8080/api/users/request-signup", {
+      email: form.email
+    })
+    .then(res => {
+      alert(res.data); // "인증 코드가 이메일로 발송되었습니다."
+    })
+    .catch(err => {
+      console.error(err);
+      alert("인증코드 요청 실패: " + err.message);
     });
   };
 
@@ -71,6 +90,15 @@ function SignUp() {
           placeholder="이메일"
           value={form.email}
           onChange={handleChange}
+        />
+        <button type="button" onClick={handleRequestCode}>인증코드 받기</button>
+        <br />
+         <input
+           type="text"
+           name="code"
+           placeholder="인증 코드"
+           value={form.code}
+           onChange={handleChange}
         /><br />
         <button type="submit">회원가입</button>
       </form>
