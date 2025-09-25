@@ -3,21 +3,21 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-route
 import Login from "./pages/login/login";
 import LoginButton from "./login-button";
 import SignUp from "./pages/login/sign-up/sign";
-import Game from "./pages/games/game";  
-import GameButton from "./game-button"; 
+import Game from "./pages/games/game";
+import GameList from "./pages/games/GameList";
+import GameButton from "./game-button";
 
 import { useEffect, useState } from "react";
 import { getUsers } from "./API/api";
 
 // 홈 화면 (Router 안쪽에서 실행됨)
-function Home() {
+function Home({ user, onLogout }) {
   const navigate = useNavigate();
-  
-  //call api
-  const [users, setUsers] = useState([]);
+  const [apiUsers, setApiUsers] = useState([]);   // ✅ 이름 통일
 
+  // API 호출
   useEffect(() => {
-    getUsers().then(setUsers);
+    getUsers().then(setApiUsers);
   }, []);
 
   return (
@@ -37,33 +37,65 @@ function Home() {
       }}
     >
       <h1>🎮 Mini Game Platform</h1>
-      <p>환영합니다! 원하는 메뉴를 선택하세요.</p>
-      <div>
-        <LoginButton navigate={navigate} />
-        <GameButton navigate={navigate} /> 
+
+      {!user ? (
+        <>
+          <p>환영합니다! 원하는 메뉴를 선택하세요.</p>
+          <div>
+            <LoginButton navigate={navigate} />
+            <GameButton navigate={navigate} />
+          </div>
+        </>
+      ) : (
+        <>
+          <p>{user.nickname}님 환영합니다 🎉</p>
+          <button onClick={onLogout}>로그아웃</button>
+        </>
+      )}
+      {/* ✅ 게임 버튼은 항상 노출 */}
+      <div style={{ marginTop: "10px" }}>
+        <GameButton navigate={navigate} />
       </div>
 
-      <div style={{ marginTop: "20px", background: "rgba(0,0,0,0.5)", padding: "10px", borderRadius: "8px" }}>
+
+      <div
+        style={{
+          marginTop: "20px",
+          background: "rgba(0,0,0,0.5)",
+          padding: "10px",
+          borderRadius: "8px"
+        }}
+      >
         <h2>Users from Spring Boot API</h2>
         <ul>
-          {users.map((u, i) => (
+          {apiUsers.map((u, i) => (
             <li key={i}>{u}</li>
           ))}
         </ul>
       </div>
-
     </div>
   );
 }
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  const handleLogin = (nickname) => {
+    setUser({ nickname }); // 로그인 성공 시 닉네임 저장
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home user={user} onLogout={handleLogout} />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/games" element={<Game />} />
+        <Route path="/games" element={<GameList />} />
+        <Route path="/games/5mok" element={<Game />} />
       </Routes>
     </Router>
   );

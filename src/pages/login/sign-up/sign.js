@@ -44,10 +44,11 @@ function SignUp() {
       return;
     }
 
-    axios.post("http://100.82.187.105:8080/api/users/register", {
+    axios.post("http://100.82.187.105:8080/api/users/verify", {
       nickname: form.nickname,
       password: form.password,
-      email: form.email
+      email: form.email,
+      code: form.code
     })
     .then(res => {
       alert("회원가입 성공!");
